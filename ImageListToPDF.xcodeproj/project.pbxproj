@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C26A8ED26058298000CBB60 /* ImagePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C26A8EC26058298000CBB60 /* ImagePage.swift */; };
+		4C26A8F0260582B8000CBB60 /* SamplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C26A8EF260582B8000CBB60 /* SamplePage.swift */; };
 		4C31DB10260582350072B5B9 /* ImageListToPDFApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31DB0F260582350072B5B9 /* ImageListToPDFApp.swift */; };
 		4C31DB12260582350072B5B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31DB11260582350072B5B9 /* ContentView.swift */; };
 		4C31DB14260582360072B5B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C31DB13260582360072B5B9 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C26A8EC26058298000CBB60 /* ImagePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePage.swift; sourceTree = "<group>"; };
+		4C26A8EF260582B8000CBB60 /* SamplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePage.swift; sourceTree = "<group>"; };
 		4C31DB0C260582350072B5B9 /* ImageListToPDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageListToPDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C31DB0F260582350072B5B9 /* ImageListToPDFApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListToPDFApp.swift; sourceTree = "<group>"; };
 		4C31DB11260582350072B5B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				4C31DB13260582360072B5B9 /* Assets.xcassets */,
 				4C31DB18260582360072B5B9 /* Info.plist */,
 				4C31DB15260582360072B5B9 /* Preview Content */,
+				4C26A8EC26058298000CBB60 /* ImagePage.swift */,
+				4C26A8EF260582B8000CBB60 /* SamplePage.swift */,
 			);
 			path = ImageListToPDF;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C31DB12260582350072B5B9 /* ContentView.swift in Sources */,
+				4C26A8ED26058298000CBB60 /* ImagePage.swift in Sources */,
+				4C26A8F0260582B8000CBB60 /* SamplePage.swift in Sources */,
 				4C31DB10260582350072B5B9 /* ImageListToPDFApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

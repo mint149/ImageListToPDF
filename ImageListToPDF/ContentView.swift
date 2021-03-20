@@ -1,16 +1,28 @@
 //
 //  ContentView.swift
-//  ImageListToPDF
+//  pdfTest
 //
-//  Created by hato on 2021/03/20.
+//  Created by hato on 2021/03/18.
 //
 
 import SwiftUI
+import PDFKit
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button(action: {
+            let pdf = PDFDocument()
+            pdf.insert(ImagePage(imageName: "testShot"), at: pdf.pageCount)
+            pdf.insert(ImagePage(imageName: "testShot2"), at: pdf.pageCount)
+
+            if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let path = url.appendingPathComponent("output.pdf")
+                print(path)
+                pdf.write(to: path)
+            }
+        }) {
+            Text("Go!")
+        }
     }
 }
 
