@@ -12,6 +12,8 @@
 		4C31DB12260582350072B5B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31DB11260582350072B5B9 /* ContentView.swift */; };
 		4C31DB14260582360072B5B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C31DB13260582360072B5B9 /* Assets.xcassets */; };
 		4C31DB17260582360072B5B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C31DB16260582360072B5B9 /* Preview Assets.xcassets */; };
+		4CE545272608E712002A80DF /* ImageOnlyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE545262608E712002A80DF /* ImageOnlyPickerController.swift */; };
+		4CE5452A2608EB2B002A80DF /* ImageOnlyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE545292608EB2B002A80DF /* ImageOnlyPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		4C31DB13260582360072B5B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C31DB16260582360072B5B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C31DB18260582360072B5B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CE545262608E712002A80DF /* ImageOnlyPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOnlyPickerController.swift; sourceTree = "<group>"; };
+		4CE545292608EB2B002A80DF /* ImageOnlyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOnlyPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				4C31DB0F260582350072B5B9 /* ImageListToPDFApp.swift */,
+				4CE545262608E712002A80DF /* ImageOnlyPickerController.swift */,
 				4C31DB11260582350072B5B9 /* ContentView.swift */,
 				4C31DB13260582360072B5B9 /* Assets.xcassets */,
 				4C31DB18260582360072B5B9 /* Info.plist */,
 				4C31DB15260582360072B5B9 /* Preview Content */,
 				4C26A8EC26058298000CBB60 /* ImagePage.swift */,
+				4CE545292608EB2B002A80DF /* ImageOnlyPicker.swift */,
 			);
 			path = ImageListToPDF;
 			sourceTree = "<group>";
@@ -141,8 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE5452A2608EB2B002A80DF /* ImageOnlyPicker.swift in Sources */,
 				4C31DB12260582350072B5B9 /* ContentView.swift in Sources */,
 				4C26A8ED26058298000CBB60 /* ImagePage.swift in Sources */,
+				4CE545272608E712002A80DF /* ImageOnlyPickerController.swift in Sources */,
 				4C31DB10260582350072B5B9 /* ImageListToPDFApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

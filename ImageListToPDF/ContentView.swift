@@ -10,19 +10,23 @@ import PDFKit
 
 struct ContentView: View {
     var body: some View {
-        Button(action: {
-            let pdf = PDFDocument()
-            pdf.insert(ImagePage(imageName: "testShot"), at: pdf.pageCount)
-            pdf.insert(ImagePage(imageName: "testShot2"), at: pdf.pageCount)
+        VStack{
+            Button(action: {
+                let pdf = PDFDocument()
+                pdf.insert(ImagePage(imageName: "testShot"), at: pdf.pageCount)
+                pdf.insert(ImagePage(imageName: "testShot2"), at: pdf.pageCount)
 
-            if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let path = url.appendingPathComponent("output.pdf")
-                print(path)
-                pdf.write(to: path)
+                if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    let path = url.appendingPathComponent("output.pdf")
+                    print(path)
+                    pdf.write(to: path)
+                }
+            }) {
+                Text("Go!")
             }
-        }) {
-            Text("Go!")
+            ImageOnlyPicker()
         }
+        
     }
 }
 
