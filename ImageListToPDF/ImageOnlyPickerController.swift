@@ -21,6 +21,7 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
             asCopy: true
         )
         documentPickerViewController.delegate = context.coordinator
+        documentPickerViewController.allowsMultipleSelection = true
 
         return documentPickerViewController
     }
@@ -37,11 +38,19 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
         }
         
         public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            if urls.first == nil || !urls.first!.startAccessingSecurityScopedResource() {
+                return
+            }
+            
             // ファイル選択後に呼ばれる
             // urls.first?.pathExtensionで選択した拡張子が取得できる
-            if let filePath = urls.first?.description {
-                print("ファイルパス:\(filePath)")
+            if let fileFirst = urls.first {
+                print("description:\(fileFirst.description)")
+                print("pathExtension:\(fileFirst.pathExtension)")
+                print("pathComponents:\(fileFirst.pathComponents)")
             }
+            
+            urls.first!.stopAccessingSecurityScopedResource()
         }
         
         public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {

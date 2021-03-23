@@ -1,5 +1,5 @@
 //
-//  SampleView.swift
+//  ImageOnlyPicker.swift
 //  ImageListToPDF
 //
 //  Created by hato on 2021/03/23.
@@ -13,7 +13,7 @@ struct ImageOnlyPicker: View {
     }
 }
 
-struct SampleView_Previews: PreviewProvider {
+struct ImageOnlyPicker_Previews: PreviewProvider {
     static var previews: some View {
         ImageOnlyPicker()
     }

@@ -9,8 +9,14 @@ import SwiftUI
 import PDFKit
 
 struct ContentView: View {
+    @State var showSheet = false
+    @State var pdfName = ""
+
     var body: some View {
         VStack{
+            TextField("Input PDF Name", text: $pdfName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             Button(action: {
                 let pdf = PDFDocument()
                 pdf.insert(ImagePage(imageName: "testShot"), at: pdf.pageCount)
@@ -24,7 +30,14 @@ struct ContentView: View {
             }) {
                 Text("Go!")
             }
-            ImageOnlyPicker()
+            Button(action: {
+                showSheet = true
+            }) {
+                Text("Show Picker")
+            }
+            .sheet(isPresented: $showSheet, content: {
+                ImageOnlyPicker()
+            })
         }
         
     }
