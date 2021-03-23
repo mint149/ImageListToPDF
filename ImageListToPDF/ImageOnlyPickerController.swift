@@ -39,38 +39,40 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
         }
         
         public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            if urls.first == nil || !urls.first!.startAccessingSecurityScopedResource() {
+            if urls.first == nil {
                 return
             }
             
-            // ファイル選択後に呼ばれる
-            // urls.first?.pathExtensionで選択した拡張子が取得できる
-            if let fileFirst = urls.first {
-                print("description:\(fileFirst.description)")
-                print("pathExtension:\(fileFirst.pathExtension)")
-                print("pathComponents:\(fileFirst.pathComponents)")
+            let sortedUrls = urls.sorted(by: { (a, b) -> Bool in
+                return a.pathComponents.last! < b.pathComponents.last!
+            })
+            
+            let pdf = PDFDocument()
 
-                let image:UIImage = UIImage(url: fileFirst)
+            sortedUrls.forEach { (url) in
+                url.startAccessingSecurityScopedResource()
+                
+                print("description:\(url.description)")
+                print("pathExtension:\(url.pathExtension)")
+                print("pathComponents:\(url.pathComponents)")
 
-                let pdf = PDFDocument()
+                let image:UIImage = UIImage(url: url)
+
                 pdf.insert(ImagePage(image: image), at: pdf.pageCount)
 
-                if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                    let path = url.appendingPathComponent("output.pdf")
-                    print(path)
-                    pdf.write(to: path)
-                }
+                url.stopAccessingSecurityScopedResource()
             }
-            
-            // pathComponentsのLastを昇順ソート
-            
-            urls.first!.stopAccessingSecurityScopedResource()
+
+            if let outputUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let path = outputUrl.appendingPathComponent("output.pdf")
+                print(path)
+                pdf.write(to: path)
+            }
         }
         
         public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             print("キャンセル")
         }
-        
     }
 }
 
