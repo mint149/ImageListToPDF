@@ -36,7 +36,7 @@ struct ContentView: View {
                 Text("Show Picker")
             }
             .sheet(isPresented: $showSheet, content: {
-                ImageOnlyPicker()
+                ImageOnlyPicker(pdfName: $pdfName)
             })
         }
         

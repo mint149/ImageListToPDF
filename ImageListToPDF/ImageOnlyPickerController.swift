@@ -12,6 +12,8 @@ import PDFKit
 import UniformTypeIdentifiers
 
 struct ImageOnlyPickerController :UIViewControllerRepresentable{
+    @Binding var pdfName: String
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
@@ -43,6 +45,10 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
                 return
             }
             
+            if parent.pdfName == "" {
+                parent.pdfName = "output"
+            }
+            
             let sortedUrls = urls.sorted(by: { (a, b) -> Bool in
                 return a.pathComponents.last! < b.pathComponents.last!
             })
@@ -64,7 +70,7 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
             }
 
             if let outputUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let path = outputUrl.appendingPathComponent("output.pdf")
+                let path = outputUrl.appendingPathComponent("\(parent.pdfName).pdf")
                 print(path)
                 pdf.write(to: path)
             }

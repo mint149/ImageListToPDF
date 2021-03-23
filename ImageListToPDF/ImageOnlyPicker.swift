@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ImageOnlyPicker: View {
+    @Binding var pdfName: String
     var body: some View {
-        ImageOnlyPickerController()
+        ImageOnlyPickerController(pdfName: $pdfName)
     }
 }
 
 struct ImageOnlyPicker_Previews: PreviewProvider {
     static var previews: some View {
-        ImageOnlyPicker()
+        ImageOnlyPicker(pdfName: .constant("testPDF"))
     }
 }
