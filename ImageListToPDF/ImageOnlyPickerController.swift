@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import PDFKit
 import UniformTypeIdentifiers
 
 struct ImageOnlyPickerController :UIViewControllerRepresentable{
@@ -48,7 +49,20 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
                 print("description:\(fileFirst.description)")
                 print("pathExtension:\(fileFirst.pathExtension)")
                 print("pathComponents:\(fileFirst.pathComponents)")
+
+                let image:UIImage = UIImage(url: fileFirst)
+
+                let pdf = PDFDocument()
+                pdf.insert(ImagePage(image: image), at: pdf.pageCount)
+
+                if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    let path = url.appendingPathComponent("output.pdf")
+                    print(path)
+                    pdf.write(to: path)
+                }
             }
+            
+            // pathComponentsのLastを昇順ソート
             
             urls.first!.stopAccessingSecurityScopedResource()
         }

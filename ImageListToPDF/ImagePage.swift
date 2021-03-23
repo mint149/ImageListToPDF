@@ -20,6 +20,13 @@ final class ImagePage: PDFPage {
         super.init()
     }
 
+    override init(image: UIImage) {
+        self.image = image
+        width = Int(image.size.width)
+        height = Int(image.size.height)
+        super.init()
+    }
+
     override func draw(with box: PDFDisplayBox, to context: CGContext) {
         super.draw(with: box, to: context)
         UIGraphicsPushContext(context)
