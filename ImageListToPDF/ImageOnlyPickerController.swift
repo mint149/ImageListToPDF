@@ -18,7 +18,7 @@ struct ImageOnlyPickerController :UIViewControllerRepresentable{
     
     func makeUIViewController(context: Context) -> UIViewController {
         let documentPickerViewController = UIDocumentPickerViewController(
-            forOpeningContentTypes: [UTType.image, UTType.pdf],
+            forOpeningContentTypes: [UTType.image],
             asCopy: true
         )
         documentPickerViewController.delegate = context.coordinator
